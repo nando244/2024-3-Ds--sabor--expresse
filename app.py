@@ -40,12 +40,15 @@ def escolhe_opcao():
 
     def cadastra_carros():
         exibir_subtitulo('Cadastrar carro')
-        nome_carro = input('Digite o nome do carro: ')
-        modelo_carro = input('Digite o modelo do carro: ')
-        ativo_carro = input('O carro está ativo? (s/n): ').lower() == 's'
-        carros.append({'nome': nome_carro, 'modelo': modelo_carro, 'ativo': ativo_carro})
+
+        nome_carro = input('Digite a marca do carro:')
+        modelo_carro = input('digite o modelo:')
+        dados_do_carro = {'nome': nome_carro, 'modelo': modelo_carro, 'ativo': True}
+        carros.append(dados_do_carro)
         print(f'O carro {nome_carro} foi cadastrado com sucesso\n')
+
         retorna_menu()
+
 
     def listar_carros():
         exibir_subtitulo('Lista de carros cadastrados')
