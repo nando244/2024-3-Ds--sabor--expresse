@@ -59,6 +59,20 @@ def escolhe_opcao():
             print(f' - {nome_carro} | {modelo_carro} | {ativo}')
         retorna_menu()
 
+        def ativar_carros():
+            exibir_subtitulo('Ativar carro')
+            nome_carro = input('Digite o nome do carro que desaja ativar:')
+            carro_encontrado = False
+
+            for carros in carros:
+               if nome_carro == carro('carro'):
+                    carro_encontrado = True
+                    carro['carro'] = not carro['carro']
+                    mensagem = f'A matricula de {nome_carro} foi ativado com suceso' if carro['ativo'] else f'A matricula {nome_carro} foi desativado'
+                    print(mensagem)
+            if not aluno_encontrado:
+                print('Não encontrado')
+
     def finalizar_programa():
         os.system('clear')
         print('Finalizando o programa\n')
