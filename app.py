@@ -30,7 +30,9 @@ def mostra_escolhas():
 def escolhe_opcao():
     
     def exibir_subtitulo(texto):
-        os.system('clear')
+        os.system('cls')
+        Linha =-  len(texto)
+        print(Linha)
         print(texto)
         print('')
 
@@ -55,26 +57,27 @@ def escolhe_opcao():
         for carro in carros:
             nome_carro = carro['nome']
             modelo_carro = carro['modelo']
-            ativo = 'Ativo' if carro['ativo'] else 'Inativo'
-            print(f' - {nome_carro} | {modelo_carro} | {ativo}')
+            ativo = 'Cadastrado' if ['carros'] else  'Não cadastrado'
+            print(f' - {nome_carro.ljust(20)} | {modelo_carro.ljust(20)} | {ativo}')
         retorna_menu()
 
-        def ativar_carros():
-            exibir_subtitulo('Ativar carro')
-            nome_carro = input('Digite o nome do carro que desaja ativar:')
-            carro_encontrado = False
+    def ativar_carros():
+        exibir_subtitulo('Ativar carro')
+        nome_carro = input('Digite o nome do carro que desaja ativar:')
+        carro_encontrado = False
 
-            for carros in carros:
-               if nome_carro == carro('carro'):
-                    carro_encontrado = True
-                    carro['carro'] = not carro['carro']
-                    mensagem = f'A matricula de {nome_carro} foi ativado com suceso' if carro['ativo'] else f'A matricula {nome_carro} foi desativado'
-                    print(mensagem)
-            if not aluno_encontrado:
-                print('Não encontrado')
+        for carro in carros:
+            if nome_carro == carro('carro'):
+                carro_encontrado = True
+                carro['carro'] = not carro['carro']
+                mensagem = f'A matricula de {nome_carro} foi ativado com suceso' if carro['ativo'] else f'A matricula {nome_carro} foi desativado'
+                print(mensagem)
+        if not carro_encontrado:
+            print('Não encontrado')
+        retorna_menu()
 
     def finalizar_programa():
-        os.system('clear')
+        os.system('cls')
         print('Finalizando o programa\n')
 
     def opcao_invalida():
@@ -90,8 +93,7 @@ def escolhe_opcao():
         elif opcao_escolhida == 2:
             listar_carros()
         elif opcao_escolhida == 3:
-            print('Você escolheu Ativar estoque')
-            retorna_menu()
+            ativar_carros()
         elif opcao_escolhida == 4:
             finalizar_programa()
         else:
